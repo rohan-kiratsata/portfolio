@@ -12,6 +12,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         mono: ["JetBrains Mono", "monospace"],
+        generalSans: ["General Sans", "sans-serif"],
       },
     },
   },

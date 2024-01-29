@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "./providers";
 import Sidebar from "@/components/Sidebar";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,10 +16,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Head>
+        {/* Font API */}
+        <link
+          href="https://api.fontshare.com/v2/css?f[]=general-sans@701,200,500,301,201,300,601,600,401,501,400,700&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
       <body className="dark text-foreground bg-background">
         <Providers>
-          <Sidebar />
-          <div className="w-full ">{children}</div>
+          <div className="flex">
+            <Sidebar />
+            <div className="w-full p-5">{children}</div>
+          </div>
         </Providers>
       </body>
     </html>
