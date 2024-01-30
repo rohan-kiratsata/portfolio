@@ -1,11 +1,15 @@
 "use client";
 
 import React from "react";
-import { socials, navbarItems } from "@/utils/content";
+import { navbarItems } from "@/utils/content";
 import Link from "next/link";
 import { Kbd } from "@nextui-org/kbd";
 import generateID from "@/utils/generateId";
 import useSound from "use-sound";
+import { useDisclosure } from "@nextui-org/modal";
+import { Button, Card } from "@nextui-org/react";
+import ContactModal from "./ContactModal";
+import { Modal, ModalContent, ModalHeader, ModalBody } from "@nextui-org/modal";
 
 type Props = {};
 
@@ -35,7 +39,7 @@ export default function Sidebar({}: Props) {
             })}
           </nav>
         </div>
-        {/* socials */}
+        {/* Theme mode */}
         <div className="flex gap-4 mt-3">
           <h6 className="text-content1 hover:text-white cursor-pointer transition-colors ease-in-out duration-50 ">
             LIGHT
@@ -61,8 +65,9 @@ const NavbarItem = ({ title, caption, link, kbd }: NavbarItemCardProps) => {
   return (
     <>
       {title === "Contact" ? (
-        <Link href={link} onClick={() => play}>
-          <div className="rounded-lg border-1.5 border-neutral-800 py-2.5 px-2.5 hover:border-white transition-colors ease-in-out duration-50 flex justify-between">
+        // TODO: Replace with logic to open modal
+        <>
+          <div className="rounded-lg border-1.5 border-neutral-800 py-2.5 px-2.5 hover:border-white transition-colors ease-in-out duration-50 flex justify-between bg-transparent">
             <div>
               <h3 className="">{title}</h3>
               <p className="text-sm text-content1 font-medium">{caption}</p>
@@ -71,7 +76,7 @@ const NavbarItem = ({ title, caption, link, kbd }: NavbarItemCardProps) => {
               <Kbd className="text-xs rounded-md">{kbd}</Kbd>
             </div>
           </div>
-        </Link>
+        </>
       ) : (
         <Link href={link} onClick={() => play}>
           <div className="rounded-lg border-1.5 border-neutral-800 py-2.5 px-2.5 hover:border-white transition-colors ease-in-out duration-50 flex justify-between">
