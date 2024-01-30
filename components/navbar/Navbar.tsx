@@ -13,10 +13,11 @@ import { Modal, ModalContent, ModalHeader, ModalBody } from "@nextui-org/modal";
 
 type Props = {};
 
-export default function Sidebar({}: Props) {
+export default function Navbar({}: Props) {
   return (
     <>
-      <aside className="md:w-[25%] md:h-screen md:p-5 border-r-1.5 border-neutral-800 flex flex-col justify-between">
+      {/* Sidebar for xl and 2xl screens */}
+      <aside className="hidden xl:flex md:w-[25%] md:h-screen md:p-5 border-r-1.5 border-neutral-800 flex-col justify-between overflow-y-scroll">
         <div className="">
           <header className="mb-8">
             <Link href={"/"} className="w-fit">
@@ -24,7 +25,7 @@ export default function Sidebar({}: Props) {
             </Link>
           </header>
 
-          {/* navbar */}
+          {/* Navbar */}
           <nav className="flex flex-col gap-2 my-10">
             {navbarItems.map((item) => {
               return (
@@ -39,6 +40,7 @@ export default function Sidebar({}: Props) {
             })}
           </nav>
         </div>
+
         {/* Theme mode */}
         <div className="flex gap-4 mt-3">
           <h6 className="text-content1 hover:text-white cursor-pointer transition-colors ease-in-out duration-50 ">
@@ -53,6 +55,7 @@ export default function Sidebar({}: Props) {
     </>
   );
 }
+
 interface NavbarItemCardProps {
   title: string;
   caption: string;
