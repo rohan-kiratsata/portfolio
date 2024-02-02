@@ -25,9 +25,9 @@ export default function RootLayout({
       </Head>
       <body className="dark text-foreground bg-background">
         <Providers>
-          <div className="flex">
+          <div className="lg:flex lg:flex-row flex-col">
             <Navbar />
-            <div className="w-full p-5">{children}</div>
+            <div className="w-full h-full p-5">{children}</div>
           </div>
         </Providers>
       </body>

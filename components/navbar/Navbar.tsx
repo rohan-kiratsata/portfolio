@@ -1,23 +1,43 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { navbarItems } from "@/utils/content";
 import Link from "next/link";
 import { Kbd } from "@nextui-org/kbd";
 import generateID from "@/utils/generateId";
 import useSound from "use-sound";
-import { useDisclosure } from "@nextui-org/modal";
-import { Button, Card } from "@nextui-org/react";
-import ContactModal from "./ContactModal";
-import { Modal, ModalContent, ModalHeader, ModalBody } from "@nextui-org/modal";
+import { useRouter } from "next/navigation";
 
 type Props = {};
 
 export default function Navbar({}: Props) {
+  const router = useRouter();
+
+  const keyToUrlMap = navbarItems.reduce((acc: any, item: any) => {
+    if (item.kbd) {
+      acc[item.kbd] = item.link;
+    }
+    return acc;
+  }, {});
+
+  useEffect(() => {
+    const handleKeyPress = (e: any) => {
+      if (keyToUrlMap[e.key]) {
+        router.push(keyToUrlMap[e.key]);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [keyToUrlMap, router]);
+
   return (
     <>
       {/* Sidebar for xl and 2xl screens */}
-      <aside className="hidden xl:flex md:w-[25%] md:h-screen md:p-5 border-r-1.5 border-neutral-800 flex-col justify-between overflow-y-scroll">
+      <aside className="hidden lg:flex md:w-[25%] md:h-screen md:p-5 border-r-1.5 border-neutral-800 flex-col justify-between overflow-y-scroll scrollbar-hide">
         <div className="">
           <header className="mb-8">
             <Link href={"/"} className="w-fit">
@@ -52,6 +72,20 @@ export default function Navbar({}: Props) {
           </h6>
         </div>
       </aside>
+
+      {/* Bottom navigation for smaller screen: sm, md */}
+      <nav className="lg:hidden shadow-lg py-3 fixed bottom-0 right-0 left-0">
+        <div className="flex justify-around">
+          {navbarItems.map((item) => (
+            <BottomNavItem
+              key={generateID("NAV_BOTTOM")}
+              link={item.link}
+              title={item.title}
+              icon={item.icon} // Add icon property to each item in navbarItems
+            />
+          ))}
+        </div>
+      </nav>
     </>
   );
 }
@@ -96,3 +130,22 @@ const NavbarItem = ({ title, caption, link, kbd }: NavbarItemCardProps) => {
     </>
   );
 };
+
+interface BottomNavItemProp {
+  title: string;
+  link: string;
+  icon: JSX.Element;
+}
+
+function BottomNavItem({ title, link, icon }: BottomNavItemProp) {
+  const [play] = useSound("/audio/nock.mp3");
+
+  return (
+    <Link href={link} onClick={() => play}>
+      <div className="flex flex-col items-center">
+        {icon}
+        <span className="text-xs mt-1">{title}</span>
+      </div>
+    </Link>
+  );
+}
