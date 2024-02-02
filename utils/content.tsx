@@ -72,7 +72,10 @@ export const onboardingContent: CardProps[] = [
     id: 1,
     text: "Use keyboard shortcuts 1 - 5 to navigate through pages and press ~ to come back to home.",
   },
-  { id: 2, text: "My name's Rohan - full stack developer based in India." },
+  {
+    id: 2,
+    text: "My name&apos;s Rohan - full stack developer based in India.",
+  },
   { id: 3, text: "Card 3" },
   { id: 4, text: "Card 4" },
 ];
