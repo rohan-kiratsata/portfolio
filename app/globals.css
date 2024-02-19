@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 body {
-  @apply font-generalSans bg-background;
+  @apply bg-background;
 }
 
 h1,

@@ -74,7 +74,7 @@ export const onboardingContent: CardProps[] = [
   },
   {
     id: 2,
-    text: "My name&apos;s Rohan - full stack developer based in India.",
+    text: "My name's Rohan - full stack developer based in India.",
   },
   { id: 3, text: "Card 3" },
   { id: 4, text: "Card 4" },
