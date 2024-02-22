@@ -13,3 +13,12 @@ export interface BottomNavItemProp {
   link: string;
   icon: JSX.Element;
 }
+
+export interface CopyToClipboardProps {
+  content: string;
+  children: JSX.Element;
+}
+export interface ToastProps {
+  children: JSX.Element;
+  content: string;
+}

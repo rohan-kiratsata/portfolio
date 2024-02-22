@@ -1,6 +1,12 @@
-import React from "react";
-import { motion, AnimatePresence } from "framer-motion"; // Import motion and AnimatePresence from Framer Motion
-import { PiX } from "@/utils/iconImports";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { PiNotePencil, PiX } from "@/utils/iconImports";
+import { Tooltip } from "@nextui-org/tooltip";
+import { Button, Divider } from "@nextui-org/react";
+import CopyToClipboard from "@/components/CopyToClipboard";
+import Toast from "../Toast";
+import Link from "next/link";
+import ContactSocials from "./ContactSocials";
 
 interface ModalProps {
   isOpen: boolean;
@@ -19,24 +25,65 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
           onClick={onClose}
         >
           <motion.div
-            className="bg-zinc-800 py-8 px-5 rounded-md w-[400px]"
+            className="bg-neutral-800 py-8 px-5 rounded-lg w-[600px]"
             onClick={(e) => e.stopPropagation()}
             initial={{ y: 0, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ type: "spring", stiffness: 150 }}
           >
             {/* Header */}
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center mb-10">
               <h2 className="text-xl font-sans font-medium">Contact</h2>
-              <div className="hover:bg-neutral-700 p-1 rounded-lg cursor-pointer">
-                <PiX onClick={onClose} size={18} />
+              <div
+                onClick={onClose}
+                className="hover:bg-neutral-700 p-1 rounded-lg cursor-pointer"
+              >
+                <PiX size={18} />
               </div>
             </div>
             <div className="">
               {/* Email */}
-              <div className="">
-                <h5>Email</h5>
-                <div className="">kiratsatarohan@gmail.com</div>
+              <span className="text-lg">Email</span>
+              <div className="flex justify-between items-center">
+                <Tooltip
+                  content="Copy email"
+                  placement="bottom"
+                  key="cpy-email"
+                  delay={100}
+                  closeDelay={100}
+                  className="rounded-md"
+                >
+                  <div className="p-2 hover:bg-neutral-700 w-fit rounded-lg duration-100 text-content1 hover:text-white cursor-pointer">
+                    <CopyToClipboard content="kiratsatarohan@gmail.com">
+                      <Toast content="Copied to clipboard">
+                        <span>kiratsatarohan@gmail.com</span>
+                      </Toast>
+                    </CopyToClipboard>
+                  </div>
+                </Tooltip>
+                {/* Componse button */}
+                <Button
+                  size="sm"
+                  variant="bordered"
+                  className="border-1"
+                  as={Link}
+                  href="mailto:kiratsatarohan@gmail.com"
+                >
+                  <PiNotePencil size={18} /> Compose
+                </Button>
+              </div>
+
+              <Divider className="my-5 opacity-30" />
+
+              {/* Socials */}
+              <span className="text-lg">Around the web</span>
+              <div className="flex flex-row justify-between items-center">
+                <p className="text-content1">
+                  I&apos;m mostly active on Twitter.
+                </p>
+                <div>
+                  <ContactSocials />
+                </div>
               </div>
             </div>
           </motion.div>
