@@ -5,6 +5,7 @@ import {
   PiCube,
   PiBookmark,
   PiX,
+  PiNotePencil,
 } from "react-icons/pi";
 import { FaGithub, FaTwitter, FaEnvelope } from "react-icons/fa";
 
@@ -15,6 +16,7 @@ export {
   PiX,
   PiCube,
   PiBookmark,
+  PiNotePencil,
   FaGithub,
   FaTwitter,
   FaEnvelope,

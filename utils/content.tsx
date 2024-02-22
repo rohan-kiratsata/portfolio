@@ -3,22 +3,15 @@ import { CardProps } from "@/types/index";
 
 export const socials = [
   {
-    id: "twitter",
     name: "Twitter",
     href: "https://x.com/rohan_jpeg",
     icon: <FaTwitter />,
+    color: "#1D9CEB",
   },
   {
-    id: "github",
     name: "GitHub",
     href: "https://github.com/rohan-kiratsata",
     icon: <FaGithub />,
-  },
-  {
-    id: "email",
-    name: "Email",
-    href: "mailto:kiratsatarohan@gmail.com",
-    icon: <FaEnvelope />,
   },
 ];
 
@@ -74,7 +67,7 @@ export const onboardingContent: CardProps[] = [
   },
   {
     id: 2,
-    text: "My name&apos;s Rohan - full stack developer based in India.",
+    text: "My name's Rohan - full stack developer based in India.",
   },
   { id: 3, text: "Card 3" },
   { id: 4, text: "Card 4" },

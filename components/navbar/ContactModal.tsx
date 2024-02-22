@@ -1,45 +1,96 @@
-import React from "react";
-import { Modal, ModalContent, ModalHeader, ModalBody } from "@nextui-org/modal";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { PiNotePencil, PiX } from "@/utils/iconImports";
+import { Tooltip } from "@nextui-org/tooltip";
+import { Button, Divider } from "@nextui-org/react";
+import CopyToClipboard from "@/components/CopyToClipboard";
+import Toast from "../Toast";
+import Link from "next/link";
+import ContactSocials from "./ContactSocials";
 
-type Props = {
+interface ModalProps {
   isOpen: boolean;
-  onOpenChange: (isOpen: boolean) => void;
+  onClose: () => void;
+}
+
+const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          className="absolute inset-0 backdrop-blur-[1px] bg-background/30 w-screen h-screen z-10 flex items-center justify-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={onClose}
+        >
+          <motion.div
+            className="bg-neutral-800 py-8 px-5 rounded-lg w-[600px]"
+            onClick={(e) => e.stopPropagation()}
+            initial={{ y: 0, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ type: "spring", stiffness: 150 }}
+          >
+            {/* Header */}
+            <div className="flex justify-between items-center mb-10">
+              <h2 className="text-xl font-sans font-medium">Contact</h2>
+              <div
+                onClick={onClose}
+                className="hover:bg-neutral-700 p-1 rounded-lg cursor-pointer"
+              >
+                <PiX size={18} />
+              </div>
+            </div>
+            <div className="">
+              {/* Email */}
+              <span className="text-lg">Email</span>
+              <div className="flex justify-between items-center">
+                <Tooltip
+                  content="Copy email"
+                  placement="bottom"
+                  key="cpy-email"
+                  delay={100}
+                  closeDelay={100}
+                  className="rounded-md"
+                >
+                  <div className="p-2 hover:bg-neutral-700 w-fit rounded-lg duration-100 text-content1 hover:text-white cursor-pointer">
+                    <CopyToClipboard content="kiratsatarohan@gmail.com">
+                      <Toast content="Copied to clipboard">
+                        <span>kiratsatarohan@gmail.com</span>
+                      </Toast>
+                    </CopyToClipboard>
+                  </div>
+                </Tooltip>
+                {/* Componse button */}
+                <Button
+                  size="sm"
+                  variant="bordered"
+                  className="border-1"
+                  as={Link}
+                  href="mailto:kiratsatarohan@gmail.com"
+                >
+                  <PiNotePencil size={18} /> Compose
+                </Button>
+              </div>
+
+              <Divider className="my-5 opacity-30" />
+
+              {/* Socials */}
+              <span className="text-lg">Around the web</span>
+              <div className="flex flex-row justify-between items-center">
+                <p className="text-content1">
+                  I&apos;m mostly active on Twitter.
+                </p>
+                <div>
+                  <ContactSocials />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
 };
 
-export default function ContactModal({ isOpen, onOpenChange }: Props) {
-  return (
-    <>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
-        <ModalContent>
-          {(onClose) => (
-            <>
-              <ModalHeader className="flex flex-col gap-1">
-                Modal Title
-              </ModalHeader>
-              <ModalBody>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam pulvinar risus non risus hendrerit venenatis.
-                  Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam pulvinar risus non risus hendrerit venenatis.
-                  Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                </p>
-                <p>
-                  Magna exercitation reprehenderit magna aute tempor cupidatat
-                  consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
-                  incididunt cillum quis. Velit duis sit officia eiusmod Lorem
-                  aliqua enim laboris do dolor eiusmod. Et mollit incididunt
-                  nisi consectetur esse laborum eiusmod pariatur proident Lorem
-                  eiusmod et. Culpa deserunt nostrud ad veniam.
-                </p>
-              </ModalBody>
-            </>
-          )}
-        </ModalContent>
-      </Modal>
-    </>
-  );
-}
+export default Modal;

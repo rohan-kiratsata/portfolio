@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { navbarItems } from "@/utils/content";
-import Link from "next/link";
+import { BottomNavItemProp, NavbarItemCardProps } from "@/types";
+import { useRouter } from "next/navigation";
 import { Kbd } from "@nextui-org/kbd";
 import generateID from "@/utils/generateId";
 import useSound from "use-sound";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
+import ContactModal from "./ContactModal";
 
 type Props = {};
 
@@ -22,7 +24,9 @@ export default function Navbar({}: Props) {
 
   useEffect(() => {
     const handleKeyPress = (e: any) => {
-      if (keyToUrlMap[e.key]) {
+      if (e.key === "/") {
+        e.preventDefault();
+      } else if (keyToUrlMap[e.key]) {
         router.push(keyToUrlMap[e.key]);
       }
     };
@@ -41,7 +45,7 @@ export default function Navbar({}: Props) {
         <div className="">
           <header className="mb-8">
             <Link href={"/"} className="w-fit">
-              <h1 className="text-white text-lg">ROHAN KIRATSATA</h1>
+              <h1 className="text-white text-lg font-mono">ROHAN KIRATSATA</h1>
             </Link>
           </header>
 
@@ -61,7 +65,8 @@ export default function Navbar({}: Props) {
           </nav>
         </div>
 
-        {/* Theme mode */}
+        {/* TODO: Add theme mode to overall website*/}
+
         <div className="flex gap-4 mt-3">
           <h6 className="text-content1 hover:text-white cursor-pointer transition-colors ease-in-out duration-50 ">
             LIGHT
@@ -90,21 +95,40 @@ export default function Navbar({}: Props) {
   );
 }
 
-interface NavbarItemCardProps {
-  title: string;
-  caption: string;
-  link: string;
-  kbd: string;
-}
 const NavbarItem = ({ title, caption, link, kbd }: NavbarItemCardProps) => {
   const [play] = useSound("/audio/nock.mp3");
+
+  // Hooks to trigger modal
+  const [isModalOpen, setIsOpenModal] = useState(false);
+
+  const openModal = () => {
+    setIsOpenModal(true);
+  };
+  const closeModal = () => setIsOpenModal(false);
+
+  useEffect(() => {
+    const openModalOnKeyPress = (e: any) => {
+      if (e.key === "/") {
+        openModal();
+      } else if (e.key === "Escape") {
+        closeModal();
+      }
+    };
+    window.addEventListener("keydown", openModalOnKeyPress);
+    return () => {
+      window.removeEventListener("keydown", openModalOnKeyPress);
+    };
+  }, []);
 
   return (
     <>
       {title === "Contact" ? (
         // TODO: Replace with logic to open modal
         <>
-          <div className="rounded-lg border-1.5 border-neutral-800 py-2.5 px-2.5 hover:border-white transition-colors ease-in-out duration-50 flex justify-between bg-transparent">
+          <div
+            onClick={openModal}
+            className="rounded-lg border-1.5 border-neutral-800 py-2.5 px-2.5 hover:border-white transition-colors ease-in-out duration-50 flex justify-between bg-transparent cusor-pointer"
+          >
             <div>
               <h3 className="">{title}</h3>
               <p className="text-sm text-content1 font-medium">{caption}</p>
@@ -113,6 +137,7 @@ const NavbarItem = ({ title, caption, link, kbd }: NavbarItemCardProps) => {
               <Kbd className="text-xs rounded-md">{kbd}</Kbd>
             </div>
           </div>
+          <ContactModal isOpen={isModalOpen} onClose={closeModal} />
         </>
       ) : (
         <Link href={link} onClick={() => play}>
@@ -130,12 +155,6 @@ const NavbarItem = ({ title, caption, link, kbd }: NavbarItemCardProps) => {
     </>
   );
 };
-
-interface BottomNavItemProp {
-  title: string;
-  link: string;
-  icon: JSX.Element;
-}
 
 function BottomNavItem({ title, link, icon }: BottomNavItemProp) {
   const [play] = useSound("/audio/nock.mp3");
