@@ -41,7 +41,7 @@ export default function Navbar({}: Props) {
   return (
     <>
       {/* Sidebar for xl and 2xl screens */}
-      <aside className="hidden lg:flex md:w-[25%] md:h-screen md:p-5 border-r-1.5 border-neutral-800 flex-col justify-between overflow-y-scroll scrollbar-hide">
+      <aside className="hidden lg:flex md:w-[25%] md:h-screen md:p-5 border-r-1.5 border-neutral-800 flex-col justify-between overflow-y-scroll scrollbar-hide sticky top-0">
         <div className="">
           <header className="mb-8">
             <Link href={"/"} className="w-fit">
@@ -123,11 +123,10 @@ const NavbarItem = ({ title, caption, link, kbd }: NavbarItemCardProps) => {
   return (
     <>
       {title === "Contact" ? (
-        // TODO: Replace with logic to open modal
         <>
           <div
             onClick={openModal}
-            className="rounded-lg border-1.5 border-neutral-800 py-2.5 px-2.5 hover:border-white transition-colors ease-in-out duration-50 flex justify-between bg-transparent cusor-pointer"
+            className="rounded-lg border-1.5 border-neutral-800 py-2.5 px-2.5 hover:border-white transition-colors ease-in-out duration-50 flex justify-between bg-transparent cursor-pointer"
           >
             <div>
               <h3 className="">{title}</h3>
@@ -141,7 +140,7 @@ const NavbarItem = ({ title, caption, link, kbd }: NavbarItemCardProps) => {
         </>
       ) : (
         <Link href={link} onClick={() => play}>
-          <div className="rounded-lg border-1.5 border-neutral-800 py-2.5 px-2.5 hover:border-white transition-colors ease-in-out duration-50 flex justify-between">
+          <div className="rounded-lg border-1.5 border-neutral-800 py-2.5 px-2.5 hover:border-white transition-colors ease-in-out duration-50 flex justify-between cursor-pointer">
             <div>
               <h3 className="">{title}</h3>
               <p className="text-sm text-content1 font-medium">{caption}</p>

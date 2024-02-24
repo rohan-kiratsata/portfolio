@@ -1,5 +1,52 @@
+import ProjectCard from "@/components/work/ProjectCard";
+import { projectsContent } from "@/utils/content";
+import generateID from "@/utils/generateId";
+import { Divider } from "@nextui-org/react";
+import { Table, TableHeader, TableColumn, TableBody } from "@nextui-org/table";
+
 import React from "react";
 
 export default function Work() {
-  return <div>Work Page</div>;
+  return (
+    <>
+      <div className="w-[80%] mx-auto my-5">
+        <h2 className="text-3xl font-medium">Work</h2>
+        <Divider className="my-3" />
+        <h4 className="text-lg text-content1">On-going projects</h4>
+        {projectsContent.map((item) => {
+          if (item.onGoing) {
+            return (
+              <ProjectCard
+                onGoing={item.onGoing}
+                year={item.year}
+                link={item.link}
+                title={item.title}
+                category={item.category}
+                description={item.description}
+                projectType={item.projectType}
+                key={generateID("PROJECT")}
+              />
+            );
+          }
+        })}
+        <h4 className="text-lg text-content1">Previous Projects</h4>
+        {projectsContent.map((item) => {
+          if (!item.onGoing) {
+            return (
+              <ProjectCard
+                onGoing={item.onGoing}
+                year={item.year}
+                link={item.link}
+                title={item.title}
+                category={item.category}
+                description={item.description}
+                projectType={item.projectType}
+                key={generateID("PROJECT")}
+              />
+            );
+          }
+        })}
+      </div>
+    </>
+  );
 }

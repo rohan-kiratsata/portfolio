@@ -36,7 +36,7 @@ const Onboarding = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, transition: { duration: 0.3 } }}
               layout
-              className="py-3 h-full px-10 max-w-[300px] hover:bg-neutral-800 border-r border-neutral-800 relative text-content1 text-sm group flex flex-col"
+              className="py-3 h-[100px] max-h-[120px] px-10 max-w-[300px] hover:bg-neutral-800 border-r border-neutral-800 relative text-content1 text-sm group flex items-center"
             >
               <button
                 onClick={() => removeCard(card.id)}
