@@ -31,5 +31,13 @@ export interface ProjectCardProps {
   category: string;
   projectType: "Freelance" | "Hobby" | "Side project";
 }
-
+// TODO: Create project interface
 export interface ProjectsContentProps {}
+
+export interface TableItem {
+  name: string;
+  description: string;
+  url: string;
+  createdAt: string;
+  category: "videos" | "articles" | "others";
+}

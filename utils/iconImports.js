@@ -7,6 +7,7 @@ import {
   PiX,
   PiNotePencil,
   PiInfo,
+  PiCircleFill,
 } from "react-icons/pi";
 import { FaGithub, FaTwitter, FaEnvelope } from "react-icons/fa";
 
@@ -22,4 +23,5 @@ export {
   FaGithub,
   FaTwitter,
   FaEnvelope,
+  PiCircleFill,
 };

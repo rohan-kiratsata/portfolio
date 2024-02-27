@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  env: {
+    AIRTABLE_API_KEY: process.env.AIRTABLE_API_KEY,
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

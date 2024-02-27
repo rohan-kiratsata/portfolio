@@ -1,3 +1,4 @@
+import PageTitle from "@/components/PageTitle";
 import ProjectCard from "@/components/work/ProjectCard";
 import { projectsContent } from "@/utils/content";
 import generateID from "@/utils/generateId";
@@ -10,8 +11,7 @@ export default function Work() {
   return (
     <>
       <div className="w-[80%] mx-auto my-5">
-        <h2 className="text-3xl font-medium">Work</h2>
-        <Divider className="my-3" />
+        <PageTitle title="Work" />
         <h4 className="text-lg text-content1">On-going projects</h4>
         {projectsContent.map((item) => {
           if (item.onGoing) {
