@@ -4,6 +4,7 @@ import { projectsContent } from "@/utils/content";
 import generateID from "@/utils/generateId";
 import { Divider } from "@nextui-org/react";
 import { Table, TableHeader, TableColumn, TableBody } from "@nextui-org/table";
+import Example from "./example.mdx";
 
 import React from "react";
 
@@ -13,6 +14,7 @@ export default function Work() {
       <div className="w-[80%] mx-auto my-5">
         <PageTitle title="Work" />
         <h4 className="text-lg text-content1">On-going projects</h4>
+        {/* <Example /> */}
         {projectsContent.map((item) => {
           if (item.onGoing) {
             return (

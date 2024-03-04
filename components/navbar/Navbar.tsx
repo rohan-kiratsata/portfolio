@@ -65,8 +65,6 @@ export default function Navbar({}: Props) {
           </nav>
         </div>
 
-        {/* TODO: Add theme mode to overall website*/}
-
         <div className="flex gap-4 mt-3">
           <h6 className="text-content1 hover:text-white cursor-pointer transition-colors ease-in-out duration-50 ">
             LIGHT
@@ -126,7 +124,7 @@ const NavbarItem = ({ title, caption, link, kbd }: NavbarItemCardProps) => {
         <>
           <div
             onClick={openModal}
-            className="rounded-lg border-1.5 border-neutral-800 py-2.5 px-2.5 hover:border-white transition-colors ease-in-out duration-50 flex justify-between bg-transparent cursor-pointer"
+            className="rounded-lg border-1.5 border-neutral-800 py-2.5 px-2.5 hover:border-white transition-colors ease-in-out duration-50 flex justify-between bg-transparent cursor-pointer relative"
           >
             <div>
               <h3 className="">{title}</h3>
