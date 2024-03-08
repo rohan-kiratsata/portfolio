@@ -24,12 +24,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html
+      lang="en"
+      className={`${GeistSans.variable} ${GeistMono.variable} dark text-foreground bg-background`}
+    >
       <body className={`dark text-foreground bg-background`}>
         <Providers>
-          <div className="lg:flex lg:flex-row flex-col">
+          <div className="w-[50%] mx-auto">
             <Navbar />
-            <div className="w-full h-full p-5">{children}</div>
+            <div className="my-24 w-full h-full">{children}</div>
           </div>
         </Providers>
       </body>

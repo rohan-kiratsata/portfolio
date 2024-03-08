@@ -41,16 +41,18 @@ export default function Navbar({}: Props) {
   return (
     <>
       {/* Sidebar for xl and 2xl screens */}
-      <aside className="hidden lg:flex md:w-[25%] md:h-screen md:p-5 border-r-1.5 border-neutral-800 flex-col justify-between overflow-y-scroll scrollbar-hide sticky top-0">
-        <div className="">
-          <header className="mb-8">
-            <Link href={"/"} className="w-fit">
-              <h1 className="text-white text-lg font-mono">ROHAN KIRATSATA</h1>
+      <aside className="absolute top-5 px-5 py-3 rounded-full left-1/2 -translate-x-1/2 bg-background border border-content1/30">
+        <div className="flex flex-row items-center gap-48">
+          <header className="">
+            <Link href={"/"} className="">
+              <div className="w-10 h-10 bg-white flex items-center justify-center rounded-full">
+                <h1 className="text-black text-lg font-monorounded-full">R</h1>
+              </div>
             </Link>
           </header>
 
           {/* Navbar */}
-          <nav className="flex flex-col gap-2 my-10">
+          <nav className="flex flex-row gap-5">
             {navbarItems.map((item) => {
               return (
                 <NavbarItem
@@ -64,20 +66,10 @@ export default function Navbar({}: Props) {
             })}
           </nav>
         </div>
-
-        <div className="flex gap-4 mt-3">
-          <h6 className="text-content1 hover:text-white cursor-pointer transition-colors ease-in-out duration-50 ">
-            LIGHT
-          </h6>
-          /
-          <h6 className="text-content1 hover:text-white cursor-pointer transition-colors ease-in-out duration-50 ">
-            DARK
-          </h6>
-        </div>
       </aside>
 
       {/* Bottom navigation for smaller screen: sm, md */}
-      <nav className="lg:hidden shadow-lg py-3 fixed bottom-0 right-0 left-0">
+      {/* <nav className="lg:hidden shadow-lg py-3 fixed bottom-0 right-0 left-0">
         <div className="flex justify-around">
           {navbarItems.map((item) => (
             <BottomNavItem
@@ -88,7 +80,7 @@ export default function Navbar({}: Props) {
             />
           ))}
         </div>
-      </nav>
+      </nav> */}
     </>
   );
 }
@@ -122,30 +114,15 @@ const NavbarItem = ({ title, caption, link, kbd }: NavbarItemCardProps) => {
     <>
       {title === "Contact" ? (
         <>
-          <div
-            onClick={openModal}
-            className="rounded-lg border-1.5 border-neutral-800 py-2.5 px-2.5 hover:border-white transition-colors ease-in-out duration-50 flex justify-between bg-transparent cursor-pointer relative"
-          >
-            <div>
-              <h3 className="">{title}</h3>
-              <p className="text-sm text-content1 font-medium">{caption}</p>
-            </div>
-            <div>
-              <Kbd className="text-xs rounded-md">{kbd}</Kbd>
-            </div>
+          <div onClick={openModal} className="">
+            <h3 className="">{title}</h3>
           </div>
           <ContactModal isOpen={isModalOpen} onClose={closeModal} />
         </>
       ) : (
         <Link href={link} onClick={() => play}>
-          <div className="rounded-lg border-1.5 border-neutral-800 py-2.5 px-2.5 hover:border-white transition-colors ease-in-out duration-50 flex justify-between cursor-pointer">
-            <div>
-              <h3 className="">{title}</h3>
-              <p className="text-sm text-content1 font-medium">{caption}</p>
-            </div>
-            <div>
-              <Kbd className="text-xs rounded-md">{kbd}</Kbd>
-            </div>
+          <div className="">
+            <h3 className="">{title}</h3>
           </div>
         </Link>
       )}
