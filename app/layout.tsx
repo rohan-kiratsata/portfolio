@@ -32,7 +32,7 @@ export default function RootLayout({
         <Providers>
           <div className="w-[50%] mx-auto">
             <Navbar />
-            <div className="my-24 w-full h-full">{children}</div>
+            <div className="my-14 w-full h-full">{children}</div>
           </div>
         </Providers>
       </body>

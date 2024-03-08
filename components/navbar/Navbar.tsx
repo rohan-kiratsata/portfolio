@@ -40,9 +40,9 @@ export default function Navbar({}: Props) {
 
   return (
     <>
-      {/* Sidebar for xl and 2xl screens */}
-      <aside className="absolute top-5 px-5 py-3 rounded-full left-1/2 -translate-x-1/2 bg-background border border-content1/30">
-        <div className="flex flex-row items-center gap-48">
+      {/* border border-content1/30  */}
+      <aside className="my-10 bg-background">
+        <div className="flex flex-row items-center justify-between">
           <header className="">
             <Link href={"/"} className="">
               <div className="w-10 h-10 bg-white flex items-center justify-center rounded-full">
@@ -67,20 +67,6 @@ export default function Navbar({}: Props) {
           </nav>
         </div>
       </aside>
-
-      {/* Bottom navigation for smaller screen: sm, md */}
-      {/* <nav className="lg:hidden shadow-lg py-3 fixed bottom-0 right-0 left-0">
-        <div className="flex justify-around">
-          {navbarItems.map((item) => (
-            <BottomNavItem
-              key={generateID("NAV_BOTTOM")}
-              link={item.link}
-              title={item.title}
-              icon={item.icon} // Add icon property to each item in navbarItems
-            />
-          ))}
-        </div>
-      </nav> */}
     </>
   );
 }
@@ -114,31 +100,16 @@ const NavbarItem = ({ title, caption, link, kbd }: NavbarItemCardProps) => {
     <>
       {title === "Contact" ? (
         <>
-          <div onClick={openModal} className="">
-            <h3 className="">{title}</h3>
+          <div onClick={openModal} className="cursor-pointer hover:underline">
+            <h3>{title}</h3>
           </div>
           <ContactModal isOpen={isModalOpen} onClose={closeModal} />
         </>
       ) : (
-        <Link href={link} onClick={() => play}>
-          <div className="">
-            <h3 className="">{title}</h3>
-          </div>
+        <Link href={link} onClick={() => play} className="hover:underline">
+          <h3>{title}</h3>
         </Link>
       )}
     </>
   );
 };
-
-function BottomNavItem({ title, link, icon }: BottomNavItemProp) {
-  const [play] = useSound("/audio/nock.mp3");
-
-  return (
-    <Link href={link} onClick={() => play}>
-      <div className="flex flex-col items-center">
-        {icon}
-        <span className="text-xs mt-1">{title}</span>
-      </div>
-    </Link>
-  );
-}
