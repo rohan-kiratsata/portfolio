@@ -8,7 +8,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h4: (props) => <h4 {...props} className="mb-2 text-xl font-bold" />,
     h5: (props) => <h5 {...props} className="mb-1 text-lg font-bold" />,
     h6: (props) => <h6 {...props} className="mb-1 text-base font-bold" />,
-    p: (props) => <p {...props} className="mb-4 leading-relaxed" />,
+    p: (props) => (
+      <p {...props} className="font-mono text-content1 mb-4 leading-relaxed" />
+    ),
     blockquote: (props) => (
       <blockquote {...props} className="mb-4 italic border-l-4 pl-4" />
     ),
