@@ -30,7 +30,7 @@ export default function RootLayout({
     >
       <body className={`dark text-foreground bg-background`}>
         <Providers>
-          <div className="w-[50%] mx-auto">
+          <div className="w-[90%] md:w-[60%] lg:w-[50%] mx-auto">
             <Navbar />
             <div className="my-14 w-full h-full">{children}</div>
           </div>

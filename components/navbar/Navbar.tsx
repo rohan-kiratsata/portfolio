@@ -14,6 +14,7 @@ type Props = {};
 
 export default function Navbar({}: Props) {
   const router = useRouter();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const keyToUrlMap = navbarItems.reduce((acc: any, item: any) => {
     if (item.kbd) {
@@ -41,7 +42,7 @@ export default function Navbar({}: Props) {
   return (
     <>
       {/* border border-content1/30  */}
-      <aside className="my-10 bg-background">
+      <aside className="my-10 bg-background relative">
         <div className="flex flex-row items-center justify-between">
           <header className="">
             <Link href={"/"} className="">
@@ -51,8 +52,22 @@ export default function Navbar({}: Props) {
             </Link>
           </header>
 
+          {/* Hamburger menu */}
+          <button
+            className="block md:hidden"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            ☰
+          </button>
+
           {/* Navbar */}
-          <nav className="flex flex-row gap-5">
+          <nav
+            className={`md:flex flex-row  gap-4 ${
+              isMenuOpen
+                ? "absolute right-0 top-full bg-neutral-800 p-2 rounded-md flex flex-col gap-3"
+                : "hidden"
+            }`}
+          >
             {navbarItems.map((item) => {
               return (
                 <NavbarItem
@@ -108,7 +123,9 @@ const NavbarItem = ({ title, caption, link, kbd }: NavbarItemCardProps) => {
           >
             <h3>{title}</h3> <Kbd>{kbd}</Kbd>
           </div>
-          <ContactModal isOpen={isModalOpen} onClose={closeModal} />
+          <div className="w-full h-full overflow-x-hidden">
+            <ContactModal isOpen={isModalOpen} onClose={closeModal} />
+          </div>
         </>
       ) : (
         <>
