@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { navbarItems } from "@/utils/content";
-import { BottomNavItemProp, NavbarItemCardProps } from "@/types";
+import { NavbarItemCardProps } from "@/types";
 import { useRouter } from "next/navigation";
 import { Kbd } from "@nextui-org/kbd";
 import generateID from "@/utils/generateId";
@@ -72,8 +72,6 @@ export default function Navbar({}: Props) {
 }
 
 const NavbarItem = ({ title, caption, link, kbd }: NavbarItemCardProps) => {
-  const [play] = useSound("/audio/nock.mp3");
-
   // Hooks to trigger modal
   const [isModalOpen, setIsOpenModal] = useState(false);
 
@@ -96,19 +94,39 @@ const NavbarItem = ({ title, caption, link, kbd }: NavbarItemCardProps) => {
     };
   }, []);
 
+  const isExternalLink = (link: string) => {
+    return link.startsWith("http") || link.startsWith("//");
+  };
+
   return (
     <>
       {title === "Contact" ? (
         <>
-          <div onClick={openModal} className="cursor-pointer hover:underline">
-            <h3>{title}</h3>
+          <div
+            onClick={openModal}
+            className="hover:bg-neutral-800 rounded-md h-fit p-1 cursor-pointer inline-flex gap-2"
+          >
+            <h3>{title}</h3> <Kbd>{kbd}</Kbd>
           </div>
           <ContactModal isOpen={isModalOpen} onClose={closeModal} />
         </>
       ) : (
-        <Link href={link} onClick={() => play} className="hover:underline">
-          <h3>{title}</h3>
-        </Link>
+        <>
+          {isExternalLink(link) ? (
+            <div className="hover:bg-neutral-800 rounded-md h-fit p-1">
+              <a href={link} target="_blank" className="inline-flex gap-2">
+                <span>{title}</span> <Kbd>{kbd}</Kbd>
+              </a>
+            </div>
+          ) : (
+            <div className="hover:bg-neutral-800 rounded-md h-fit p-1">
+              <Link href={link} className="inline-flex gap-2">
+                <span>{title}</span>
+                <Kbd>{kbd}</Kbd>
+              </Link>
+            </div>
+          )}
+        </>
       )}
     </>
   );
