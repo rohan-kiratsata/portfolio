@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { navbarItems } from "@/utils/content";
-import { BottomNavItemProp, NavbarItemCardProps } from "@/types";
+import { NavbarItemCardProps } from "@/types";
 import { useRouter } from "next/navigation";
 import { Kbd } from "@nextui-org/kbd";
 import generateID from "@/utils/generateId";
@@ -40,17 +40,19 @@ export default function Navbar({}: Props) {
 
   return (
     <>
-      {/* Sidebar for xl and 2xl screens */}
-      <aside className="hidden lg:flex md:w-[25%] md:h-screen md:p-5 border-r-1.5 border-neutral-800 flex-col justify-between overflow-y-scroll scrollbar-hide">
-        <div className="">
-          <header className="mb-8">
-            <Link href={"/"} className="w-fit">
-              <h1 className="text-white text-lg font-mono">ROHAN KIRATSATA</h1>
+      {/* border border-content1/30  */}
+      <aside className="my-10 bg-background">
+        <div className="flex flex-row items-center justify-between">
+          <header className="">
+            <Link href={"/"} className="">
+              <div className="w-10 h-10 bg-white flex items-center justify-center rounded-full">
+                <h1 className="text-black text-lg font-monorounded-full">R</h1>
+              </div>
             </Link>
           </header>
 
           {/* Navbar */}
-          <nav className="flex flex-col gap-2 my-10">
+          <nav className="flex flex-row gap-5">
             {navbarItems.map((item) => {
               return (
                 <NavbarItem
@@ -64,40 +66,12 @@ export default function Navbar({}: Props) {
             })}
           </nav>
         </div>
-
-        {/* TODO: Add theme mode to overall website*/}
-
-        <div className="flex gap-4 mt-3">
-          <h6 className="text-content1 hover:text-white cursor-pointer transition-colors ease-in-out duration-50 ">
-            LIGHT
-          </h6>
-          /
-          <h6 className="text-content1 hover:text-white cursor-pointer transition-colors ease-in-out duration-50 ">
-            DARK
-          </h6>
-        </div>
       </aside>
-
-      {/* Bottom navigation for smaller screen: sm, md */}
-      <nav className="lg:hidden shadow-lg py-3 fixed bottom-0 right-0 left-0">
-        <div className="flex justify-around">
-          {navbarItems.map((item) => (
-            <BottomNavItem
-              key={generateID("NAV_BOTTOM")}
-              link={item.link}
-              title={item.title}
-              icon={item.icon} // Add icon property to each item in navbarItems
-            />
-          ))}
-        </div>
-      </nav>
     </>
   );
 }
 
 const NavbarItem = ({ title, caption, link, kbd }: NavbarItemCardProps) => {
-  const [play] = useSound("/audio/nock.mp3");
-
   // Hooks to trigger modal
   const [isModalOpen, setIsOpenModal] = useState(false);
 
@@ -120,51 +94,40 @@ const NavbarItem = ({ title, caption, link, kbd }: NavbarItemCardProps) => {
     };
   }, []);
 
+  const isExternalLink = (link: string) => {
+    return link.startsWith("http") || link.startsWith("//");
+  };
+
   return (
     <>
       {title === "Contact" ? (
-        // TODO: Replace with logic to open modal
         <>
           <div
             onClick={openModal}
-            className="rounded-lg border-1.5 border-neutral-800 py-2.5 px-2.5 hover:border-white transition-colors ease-in-out duration-50 flex justify-between bg-transparent cusor-pointer"
+            className="hover:bg-neutral-800 rounded-md h-fit p-1 cursor-pointer inline-flex gap-2"
           >
-            <div>
-              <h3 className="">{title}</h3>
-              <p className="text-sm text-content1 font-medium">{caption}</p>
-            </div>
-            <div>
-              <Kbd className="text-xs rounded-md">{kbd}</Kbd>
-            </div>
+            <h3>{title}</h3> <Kbd>{kbd}</Kbd>
           </div>
           <ContactModal isOpen={isModalOpen} onClose={closeModal} />
         </>
       ) : (
-        <Link href={link} onClick={() => play}>
-          <div className="rounded-lg border-1.5 border-neutral-800 py-2.5 px-2.5 hover:border-white transition-colors ease-in-out duration-50 flex justify-between">
-            <div>
-              <h3 className="">{title}</h3>
-              <p className="text-sm text-content1 font-medium">{caption}</p>
+        <>
+          {isExternalLink(link) ? (
+            <div className="hover:bg-neutral-800 rounded-md h-fit p-1">
+              <a href={link} target="_blank" className="inline-flex gap-2">
+                <span>{title}</span> <Kbd>{kbd}</Kbd>
+              </a>
             </div>
-            <div>
-              <Kbd className="text-xs rounded-md">{kbd}</Kbd>
+          ) : (
+            <div className="hover:bg-neutral-800 rounded-md h-fit p-1">
+              <Link href={link} className="inline-flex gap-2">
+                <span>{title}</span>
+                <Kbd>{kbd}</Kbd>
+              </Link>
             </div>
-          </div>
-        </Link>
+          )}
+        </>
       )}
     </>
   );
 };
-
-function BottomNavItem({ title, link, icon }: BottomNavItemProp) {
-  const [play] = useSound("/audio/nock.mp3");
-
-  return (
-    <Link href={link} onClick={() => play}>
-      <div className="flex flex-col items-center">
-        {icon}
-        <span className="text-xs mt-1">{title}</span>
-      </div>
-    </Link>
-  );
-}

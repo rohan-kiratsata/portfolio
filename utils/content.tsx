@@ -1,5 +1,10 @@
 import { PiHouse, FaTwitter, FaGithub, FaEnvelope } from "@/utils/iconImports";
-import { CardProps } from "@/types/index";
+import {
+  CardProps,
+  ProjectCardProps,
+  ProjectsContentProps,
+} from "@/types/index";
+import Link from "next/link";
 
 export const socials = [
   {
@@ -32,24 +37,10 @@ export const navbarItems = [
   },
   {
     icon: <PiHouse />,
-    link: "/labs",
-    title: "Labs",
+    link: "https://substack.com/@unfilteredrohan",
+    title: "Musings",
     kbd: "3",
-    caption: "Making things for fun",
-  },
-  {
-    icon: <PiHouse />,
-    link: "/tsi",
-    title: "That's so Interesting",
-    kbd: "4",
-    caption: "Bunch of interesting things I found on the web",
-  },
-  {
-    icon: <PiHouse />,
-    link: "/resources",
-    title: "Resources",
-    kbd: "5",
-    caption: "List of resources I curated in my free time",
+    caption: "Inconsistent blogs on tech and philosophy",
   },
   {
     icon: <PiHouse />,
@@ -63,12 +54,75 @@ export const navbarItems = [
 export const onboardingContent: CardProps[] = [
   {
     id: 1,
-    text: "Use keyboard shortcuts 1 - 5 to navigate through pages and press ~ to come back to home.",
+    text: (
+      <>
+        <p>
+          Use keyboard shortcuts 1 - 5 to navigate through pages and press ~ to
+          come back to home.
+        </p>
+      </>
+    ),
   },
   {
     id: 2,
-    text: "My name's Rohan - full stack developer based in India.",
+    text: (
+      <>
+        <p>
+          My name&apos;s Rohan - full stack developer based in India. More{" "}
+          <Link href="/about" className="text-white">
+            about me -&gt;
+          </Link>
+        </p>
+      </>
+    ),
   },
-  { id: 3, text: "Card 3" },
-  { id: 4, text: "Card 4" },
+  {
+    id: 3,
+    text: (
+      <>
+        <p>
+          Usually I keep exploring and curating new stuff,{" "}
+          <Link href="/tsi" className="text-white">
+            check them out -&gt;
+          </Link>
+        </p>
+      </>
+    ),
+  },
+  {
+    id: 4,
+    text: (
+      <>
+        <p>
+          How I built this website? <br />
+          <Link href="https://x.com/rohan_jpeg" className="text-white">
+            Twitter thread -&gt;
+          </Link>
+        </p>
+      </>
+    ),
+  },
+];
+
+export const projectsContent: ProjectCardProps[] = [
+  {
+    onGoing: true,
+    title: "Velocity Tools",
+    description:
+      "Hand curated resources for devs, designers and indie hackers to boost their workflow in a single chrome extension.",
+    link: "https://velocitytools.xyz",
+    year: "2023",
+    category: "Chrome Extension",
+    projectType: "Side project",
+  },
+  {
+    onGoing: false,
+    title: "Test",
+    description:
+      "Hand curated resources for devs, designers and indie hackers to boost their workflow in a single chrome extension.",
+    link: "https://velocitytools.xyz",
+    year: "2023",
+    category: "Chrome Extension",
+    projectType: "Side project",
+  },
 ];

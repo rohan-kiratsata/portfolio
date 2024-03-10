@@ -9,13 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mdx-js/loader": "^3.0.1",
+    "@mdx-js/react": "^3.0.1",
+    "@next/mdx": "^14.1.1",
     "@nextui-org/react": "^2.2.9",
+    "@types/mdx": "^2.0.11",
     "framer-motion": "^10.18.0",
     "geist": "^1.2.2",
+    "gray-matter": "^4.0.3",
+    "highlight.js": "^11.9.0",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.0.1",
+    "rehype-highlight": "^7.0.0",
+    "tailwind-highlightjs": "^2.0.1",
     "use-sound": "^4.0.1",
     "uuid": "^9.0.1"
   },

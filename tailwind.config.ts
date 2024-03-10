@@ -7,8 +7,12 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+    "./mdx-components.tsx",
   ],
   theme: {
+    hljs: {
+      theme: "atom-one-dark",
+    },
     extend: {
       fontFamily: {
         sans: ["var(--font-geist-sans)"],
@@ -18,16 +22,23 @@ const config: Config = {
   },
   darkMode: "class",
   plugins: [
+    require("tailwind-highlightjs"),
     nextui({
       themes: {
         dark: {
           colors: {
             background: "#131313",
             content1: "#737373",
+            primary: "#fff",
           },
         },
       },
     }),
+  ],
+  safelist: [
+    {
+      pattern: /hljs+/,
+    },
   ],
 };
 export default config;
