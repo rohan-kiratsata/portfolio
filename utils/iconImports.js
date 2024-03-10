@@ -12,7 +12,12 @@ import {
 import { DiReact, DiPostgresql, DiDocker } from "react-icons/di";
 import { FaGithub, FaTwitter, FaEnvelope } from "react-icons/fa";
 import { TbBrandNextjs } from "react-icons/tb";
-import { SiTailwindcss, SiRuby, SiExpress } from "react-icons/si";
+import {
+  SiTailwindcss,
+  SiRuby,
+  SiExpress,
+  SiRubyonrails,
+} from "react-icons/si";
 
 export {
   PiHouse,
@@ -34,4 +39,5 @@ export {
   SiRuby as RubyIcon,
   DiPostgresql as PostgreIcon,
   DiDocker as DockerIcon,
+  SiRubyonrails as RailsIcon,
 };

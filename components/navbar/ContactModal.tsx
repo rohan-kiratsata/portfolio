@@ -1,3 +1,6 @@
+// Todo: Prevent scrolling when modal is open
+// Todo: Modal overflow on x-axis if the page has scroll
+
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PiNotePencil, PiX } from "@/utils/iconImports";

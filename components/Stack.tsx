@@ -4,6 +4,7 @@ import {
   ExpressIcon,
   NextIcon,
   PostgreIcon,
+  RailsIcon,
   ReactIcon,
   RubyIcon,
   TailwindIcon,
@@ -39,6 +40,11 @@ export default function Stack({}: Props) {
       name: "Ruby",
       icon: <RubyIcon size={32} />,
       docLink: "https://www.ruby-lang.org/en/",
+    },
+    {
+      name: "Ruby on Rails",
+      icon: <RailsIcon size={32} />,
+      docLink: "https://rubyonrails.org/",
     },
     {
       name: "PostgreSQL",
