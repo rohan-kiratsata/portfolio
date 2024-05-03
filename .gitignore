@@ -1,0 +1,10 @@
+# Deps
+node_modules
+jspm_packages
+
+# runtime data
+pids
+*.pid
+*.seed
+
+.next
