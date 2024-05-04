@@ -61,6 +61,8 @@ const ProjectCard = ({
       <div className="flex items-center gap-2">
         <Link
           href={link}
+          title={title}
+          target="_blank"
           className={buttonVariants({
             variant: "link",
             size: "sm",

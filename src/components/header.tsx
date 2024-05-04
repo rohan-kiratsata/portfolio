@@ -14,6 +14,8 @@ export default function Header() {
       <nav>
         <Link
           href="https://github.com/rohan-kiratsata"
+          title="Github"
+          target="_blank"
           className={buttonVariants({
             variant: "ghost",
             size: "icon",
@@ -24,6 +26,8 @@ export default function Header() {
         </Link>
         <Link
           href="https://x.com/rohan_jpeg"
+          title="Twitter"
+          target="_blank"
           className={buttonVariants({
             variant: "ghost",
             size: "icon",
@@ -34,6 +38,8 @@ export default function Header() {
         </Link>
         <Link
           href="mailto:kiratsatarohan@gmail.com"
+          title="Email"
+          target="_blank"
           className={buttonVariants({
             variant: "ghost",
             size: "icon",

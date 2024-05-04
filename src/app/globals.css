@@ -76,7 +76,7 @@
 }
 
 .layout {
-  @apply mx-auto max-w-lg py-14;
+  @apply mx-auto max-w-lg py-14 px-5 md:px-0;
 }
 .heading {
   @apply font-mono text-lg font-medium tracking-wide;

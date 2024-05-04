@@ -9,7 +9,8 @@ export default function Credits() {
       <p className="text-sm text-neutral-500">
         components library used -{" "}
         <Link
-          href={"https://ui.shadcn.com"}
+          href={"https://ui.shadcn.com/?ref=rohankiratsata.xyz"}
+          title="shadcn/ui"
           className={buttonVariants({
             variant: "link",
             size: "sm",
@@ -22,7 +23,8 @@ export default function Credits() {
       <p className="text-sm text-neutral-500">
         design inspired from -{" "}
         <Link
-          href={"https://shadcn.com"}
+          href={"https://shadcn.com/?ref=rohankiratsata.xyz"}
+          title="shadcn.com"
           className={buttonVariants({
             variant: "link",
             size: "sm",

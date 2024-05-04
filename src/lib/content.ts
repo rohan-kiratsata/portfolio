@@ -44,7 +44,7 @@ export const projects: ProjectItem[] = [
   },
   {
     title: "numerous landing pages and websites",
-    link: "/",
+    link: "https://fueler.io/rohank",
     description: "",
     category: "freelance",
   },
