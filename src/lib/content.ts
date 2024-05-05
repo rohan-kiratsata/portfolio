@@ -16,6 +16,14 @@ export const projects: ProjectItem[] = [
     category: "personal",
   },
   {
+    title: "nlog",
+    link: "https://github.com/rohan-kiratsata/nlog/",
+    description:
+      "an open-source blog starter website template built with next.js 14 and tailwindcss",
+    label: "in progress",
+    category: "personal",
+  },
+  {
     title: "netherite",
     link: "https://github.com/rohan-kiratsata/netherite/",
     description:
