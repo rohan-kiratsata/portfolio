@@ -7,7 +7,6 @@ export default async function NotesPage() {
 
   return (
     <div>
-      <h1>Notes</h1>
       {notes.map((note: any, index: any) => {
         const slug = note.filePath
           .replace("/notes/", "")
