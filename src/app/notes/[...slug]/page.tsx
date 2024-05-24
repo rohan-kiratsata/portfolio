@@ -1,5 +1,5 @@
 import fs from "fs";
-import path, { relative } from "path";
+import path from "path";
 import matter from "gray-matter";
 import { readNotes } from "@/lib/notes";
 
@@ -27,19 +27,23 @@ export async function generateStaticParams() {
 export default async function NotePage({ params }: { params: any }) {
   console.log("PARAMS:", params);
 
-  const slugPath = params.slug;
+  const slugPath = params.slug.map(decodeURIComponent).join("/");
   const fullPath = path.join(notesDirectory, `${slugPath}.md`);
 
   console.log("FULL PATH:", fullPath);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-  console.log("FILE CONTENTS:", fileContents);
-  const { data, content } = matter(fileContents);
+  try {
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+    const { data, content } = matter(fileContents);
 
-  return (
-    <div>
-      <h1>{data.title || slugPath}</h1>
-      <div>{content}</div>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-    </div>
-  );
+    return (
+      <div>
+        <h1>{data.title || slugPath}</h1>
+        <div>{content}</div>
+        <pre>{JSON.stringify(data, null, 2)}</pre>
+      </div>
+    );
+  } catch (error) {
+    console.error("Error reading file:", error);
+    return <div>Note not found</div>;
+  }
 }

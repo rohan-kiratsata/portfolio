@@ -25,7 +25,7 @@ export default function Header() {
           <RiGithubFill className="h-5 w-5" />
         </Link>
         <Link
-          href="https://x.com/rohan_jpeg"
+          href="https://x.com/rohanzig"
           title="Twitter"
           target="_blank"
           className={buttonVariants({
