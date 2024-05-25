@@ -34,6 +34,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <div className="layout">
+            from (root)
             <Header />
             <div className="my-10">{children}</div>
           </div>
