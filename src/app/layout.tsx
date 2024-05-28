@@ -3,6 +3,7 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "Rohan Kiratsata - Freelancer, Full Stack Developer",
@@ -31,6 +32,7 @@ export default function RootLayout({
       className={`${GeistSans.variable} ${GeistMono.variable} font-sans`}
     >
       <body>
+        <Analytics />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <div className="z-20">{children}</div>
         </ThemeProvider>
