@@ -4,6 +4,7 @@ import { GeistMono } from "geist/font/mono";
 import "../(root)/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
+import MainSidebar from "@/components/layout/main-sidebar";
 
 export default function NoteLayout({
   children,
@@ -17,8 +18,10 @@ export default function NoteLayout({
     >
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <div className="max-w-2xl mx-auto">
-            <Header />
+          <div className="max-w-7xl mx-auto bg-gray-500/20 flex flex-row py-5">
+            {/* Sidebar */}
+
+            <MainSidebar />
             <div className="my-10">{children}</div>
           </div>
         </ThemeProvider>

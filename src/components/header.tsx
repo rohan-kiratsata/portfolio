@@ -1,12 +1,13 @@
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { RiGithubFill, RiTwitterFill, RiMailFill } from "@remixicon/react";
+import { site } from "@/config";
 
 export default function Header() {
   return (
     <div className="flex items-center justify-between">
       <header className="flex flex-col">
-        <h1 className="text-xl font-semibold">rohan-kiratsata</h1>
+        <h1 className="text-xl font-semibold">{site.name}</h1>
         <span className="text-base font-medium text-neutral-500">
           Full Stack Dev
         </span>
