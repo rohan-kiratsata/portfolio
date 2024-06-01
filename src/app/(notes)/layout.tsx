@@ -1,9 +1,7 @@
-import type { Metadata } from "next";
+import "../(root)/globals.css";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import "../(root)/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import Header from "@/components/header";
 import MainSidebar from "@/components/layout/main-sidebar";
 
 export default function NoteLayout({

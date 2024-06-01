@@ -8,10 +8,10 @@ export type ProjectItem = {
 
 export const projects: ProjectItem[] = [
   {
-    title: "tools",
-    link: "https://github.com/rohan-kiratsata/tools/",
+    title: "netherite",
+    link: "https://github.com/rohan-kiratsata/netherite",
     description:
-      "curated list of resources & tools for designers, developers & indie hackers.",
+      "visual bookmarking and note taking tools without need of traditional folders",
     label: "in progress",
     category: "personal",
   },
@@ -19,41 +19,15 @@ export const projects: ProjectItem[] = [
     title: "nlog",
     link: "https://github.com/rohan-kiratsata/nlog/",
     description:
-      "an open-source blog starter website template built with next.js 14 and tailwindcss",
+      "an open-source markdown-based blog template built with next.js 14 and tailwindcss.",
     label: "in progress",
     category: "personal",
-  },
-  {
-    title: "netherite",
-    link: "https://github.com/rohan-kiratsata/netherite/",
-    description:
-      "visual bookmarking and note taking tools without need of traditional folders",
-    label: "in progress",
-    category: "personal",
-  },
-  {
-    title: "tro/ui",
-    link: "/",
-    description: "copy and paste tailwind ui components, without dependencies",
-    label: "planned",
-    category: "personal",
-  },
-  {
-    title: "WYScale",
-    link: "https://wyscale.com/",
-    description: "crypto based mutual fund investment platform.",
-    category: "freelance",
   },
   {
     title: "WYZth",
-    link: "https://wyzth.org/",
-    description: "startup building crypto ecosystem",
-    category: "freelance",
-  },
-  {
-    title: "numerous landing pages and websites",
-    link: "https://fueler.io/rohank",
-    description: "",
+    link: "https://wyzth.com/",
+    description:
+      "worked as freelancer frontend dev for a web-3 startup. Did all of their products' design and frontend",
     category: "freelance",
   },
 ];

@@ -8,10 +8,6 @@ export default function Header() {
     <div className="flex items-center justify-between">
       <header className="flex flex-col">
         <h1 className="text-xl font-semibold">{site.name}</h1>
-        <span className="text-base font-medium text-neutral-500">
-          Full Stack Dev
-        </span>
-        <span className="text-sm mt-0.5 text-neutral-500">e/acc</span>
       </header>
       <nav>
         <Link

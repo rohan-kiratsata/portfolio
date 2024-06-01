@@ -10,8 +10,7 @@ export default function Home() {
       <main>
         <About />
         <Projects />
-        {/* <Links /> */}
-        <Credits />
+        {/* <Credits /> */}
       </main>
     </>
   );
