@@ -7,12 +7,10 @@ import Projects from "@/components/projects";
 export default function Home() {
   return (
     <>
-      <main className="layout">
-        <Header />
+      <main>
         <About />
         <Projects />
-        {/* <Links /> */}
-        <Credits />
+        {/* <Credits /> */}
       </main>
     </>
   );

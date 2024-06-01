@@ -8,3 +8,6 @@ pids
 *.seed
 
 .next
+
+# Obsidian
+/notes/.obsidian

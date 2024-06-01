@@ -1,15 +1,13 @@
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { RiGithubFill, RiTwitterFill, RiMailFill } from "@remixicon/react";
+import { site } from "@/config";
 
 export default function Header() {
   return (
     <div className="flex items-center justify-between">
       <header className="flex flex-col">
-        <h1 className="text-xl font-semibold">rohan-kiratsata</h1>
-        <span className="text-sm font-medium text-neutral-500">
-          Full Stack Developer
-        </span>
+        <h1 className="text-xl font-semibold">{site.name}</h1>
       </header>
       <nav>
         <Link
@@ -25,7 +23,7 @@ export default function Header() {
           <RiGithubFill className="h-5 w-5" />
         </Link>
         <Link
-          href="https://x.com/rohan_jpeg"
+          href="https://x.com/rohanzig"
           title="Twitter"
           target="_blank"
           className={buttonVariants({
