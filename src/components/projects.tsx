@@ -1,7 +1,8 @@
 import Link from "next/link";
 import React from "react";
 import { buttonVariants } from "./ui/button";
-import { ProjectItem, projects } from "@/lib/content";
+// import { ProjectItem, projects } from "@/lib/content";
+import {Projects}
 import { Badge } from "@/components/ui/badge";
 
 export default function Projects() {
