@@ -1,9 +1,19 @@
+"use client";
+
 import Link from "next/link";
 import { readNotes } from "@/lib/notes";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default async function NotesPage() {
   const notes = readNotes();
   console.log("NOTEs:", notes);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    router.replace("/404");
+  }, [router]);
 
   return (
     <div>

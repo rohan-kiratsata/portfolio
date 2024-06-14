@@ -1,9 +1,10 @@
 import Link from "next/link";
 import React from "react";
-import { buttonVariants } from "./ui/button";
-import { Badge } from "@/components/ui/badge";
-import { projects } from "@/lib/content";
 import { ProjectItem } from "@/types";
+import { Button, buttonVariants } from "./ui/button";
+import { projects } from "@/lib/content";
+import { Badge } from "@/components/ui/badge";
+import { RiArrowRightSLine } from "@remixicon/react";
 
 export default function Projects() {
   const categorizedProjects = projects.reduce((acc: any, item: any) => {
@@ -29,7 +30,20 @@ export default function Projects() {
           ))}
       </div>
       {/* Freelance */}
-      <div className="">
+      <div className="my-10 flex flex-col gap-2 ">
+        <Button variant={"outline"} className="w-full" asChild>
+          <Link href="/freelance">
+            view freelance projects{" "}
+            <RiArrowRightSLine className="ml-1" size={20} />
+          </Link>
+        </Button>
+        <Button variant={"outline"} className="w-full" asChild>
+          <Link href="mailto:kiratsatarohan@gmail.com">
+            open for freelance work
+          </Link>
+        </Button>
+      </div>
+      {/*  <div className="">
         {categorizedProjects.freelance && (
           <>
             <h3 className="heading mb-5 mt-10">freelance work</h3>
@@ -45,7 +59,7 @@ export default function Projects() {
             ))}
           </>
         )}
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -1,7 +1,11 @@
+"use client";
+
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { readNotes } from "@/lib/notes";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 const notesDirectory = path.join(process.cwd(), "notes");
 
@@ -25,6 +29,12 @@ export async function generateStaticParams() {
 }
 
 export default async function NotePage({ params }: { params: any }) {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.replace("/404");
+  }, [router]);
+
   console.log("PARAMS:", params);
 
   const slugPath = params.slug.map(decodeURIComponent).join("/");
