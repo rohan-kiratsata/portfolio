@@ -1,9 +1,9 @@
 import Link from "next/link";
 import React from "react";
 import { buttonVariants } from "./ui/button";
-// import { ProjectItem, projects } from "@/lib/content";
-import {Projects}
 import { Badge } from "@/components/ui/badge";
+import { projects } from "@/lib/content";
+import { ProjectItem } from "@/types";
 
 export default function Projects() {
   const categorizedProjects = projects.reduce((acc: any, item: any) => {
