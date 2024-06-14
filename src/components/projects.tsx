@@ -5,14 +5,9 @@ import { Button, buttonVariants } from "./ui/button";
 import { projects } from "@/lib/content";
 import { Badge } from "@/components/ui/badge";
 import { RiArrowRightSLine } from "@remixicon/react";
+import { categorizedProjects } from "@/lib/utils";
 
 export default function Projects() {
-  const categorizedProjects = projects.reduce((acc: any, item: any) => {
-    acc[item.category] = acc[item.category] || [];
-    acc[item.category].push(item);
-    return acc;
-  }, {});
-
   return (
     <div className="mt-10">
       <h2 className="heading">projects</h2>
