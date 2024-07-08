@@ -5,6 +5,13 @@ export const about: string =
 
 export const projects: ProjectItem[] = [
   {
+    title: "torrent client in node.js",
+    link: "https://github.com/rohan-kiratsata/bittorrent-client-nodejs",
+    description:
+      "built torrent client in node.js to learn how torrent clients works",
+    category: "personal",
+  },
+  {
     title: "netherite",
     link: "https://github.com/rohan-kiratsata/netherite",
     description:

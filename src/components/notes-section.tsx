@@ -9,7 +9,7 @@ export default function NotesSection() {
   console.log(notes);
   return (
     <>
-      <div className="">
+      <div className="my-10">
         <h2 className="heading">notes</h2>
         <div className="grid grid-cols-1 gap-1 mt-5">
           {notes.map((note: any) => {
