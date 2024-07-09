@@ -1,7 +1,7 @@
 import { ProjectItem } from "@/types";
 
 export const about: string =
-  "larping as full stack engineer and freelancing for more than 4 years. I own a computer and code for living and I love what I do. Some of my other interests are chess, F1, philosophy, hardwares and exploring LLMs. e/acc";
+  "full stack engineer at ▇▇▇▇▇ and freelancing for more than 4 years. I own a computer and code for living and I love what I do. Some of my other interests are chess, F1, philosophy, hardwares and exploring LLMs. e/acc";
 
 export const projects: ProjectItem[] = [
   {
@@ -29,7 +29,7 @@ export const projects: ProjectItem[] = [
   },
   {
     title: "WYZth",
-    link: "https://wyzth.com/",
+    link: "https://wyzth.org/",
     description:
       "worked as freelancer frontend dev for a web-3 startup. Did all of their products' design and frontend",
     category: "freelance",
@@ -47,5 +47,12 @@ export const projects: ProjectItem[] = [
     description:
       "did full stack website dev for immgration agency, built with next.js, firebase, contentful cms, tailwindcss",
     category: "freelance",
+  },
+];
+
+export const links: any = [
+  {
+    title: "my shell customization",
+    href: "https://github.com/",
   },
 ];

@@ -8,7 +8,7 @@ import Header from "@/components/header";
 import { site } from "@/config";
 
 export const metadata: Metadata = {
-  title: "Rohan Kiratsata - Freelancer, Full Stack Developer",
+  title: "Rohan Kiratsata - Software Engineer, Freelancer",
   description: site.description,
 
   authors: [{ name: "Rohan Kiratasata" }],
