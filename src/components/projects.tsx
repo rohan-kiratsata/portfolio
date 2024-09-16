@@ -1,18 +1,14 @@
 import Link from "next/link";
 import React from "react";
 import { ProjectItem } from "@/types";
-import { Button, buttonVariants } from "./ui/button";
-import { projects } from "@/lib/content";
-import { Badge } from "@/components/ui/badge";
-import { RiArrowRightSLine } from "@remixicon/react";
+import { buttonVariants } from "./ui/button";
 import { categorizedProjects } from "@/lib/utils";
-import ContactButtons from "./contact-buttons";
 
 export default function Projects() {
   return (
     <div className="mt-10">
       <h2 className="heading">projects</h2>
-      <div className="mt-5">
+      <div className="mt-5 flex flex-col gap-3">
         {categorizedProjects.personal &&
           categorizedProjects.personal.map((item: ProjectItem) => (
             <ProjectCard
@@ -25,39 +21,28 @@ export default function Projects() {
             />
           ))}
       </div>
-      {/* Contact/Page Buttons */}
-      {/* <ContactButtons /> */}
     </div>
   );
 }
 
-const ProjectCard = ({
-  title,
-  description,
-  link,
-  label,
-  category,
-}: ProjectItem) => {
+export const ProjectCard = ({ title, description, link }: ProjectItem) => {
   return (
-    <div className="list-item">
-      <Link
-        href={link}
-        title={title}
-        target="_blank"
-        className={buttonVariants({
-          variant: "link",
-          size: "sm",
-          className: "!m-0 !p-0 !text-base underline",
-        })}
-      >
+    <Link
+      href={link}
+      title={title}
+      target="_blank"
+      className="flex flex-col md:flex-row md:items-center md:space-x-1 overflow-hidden w-full group"
+    >
+      <div className="flex-shrink-0 text-sm tracking-wide font-medium">
         {title}
-      </Link>
-      {/*  {label && label !== "completed" ? (
-          <Badge variant="secondary" className="!h-fit !px-2 !py-1 !text-xs">
-            {label}
-          </Badge>
-        ) : null} */}{" "}
-      &ndash; <span className="text-base text-neutral-500">{description}</span>
-    </div>
+      </div>
+      <span className="flex-shrink-0 text-sm text-neutral-500 group-hover:text-neutral-300">
+        {description}
+      </span>
+      <hr className="hidden md:block flex-grow border-t border-neutral-600 group-hover:border-neutral-300" />
+      <span className="hidden md:inline-block flex-shrink-0 text-xs text-neutral-500 group-hover:text-neutral-300">
+        {2024}
+      </span>
+    </Link>
   );
 };
