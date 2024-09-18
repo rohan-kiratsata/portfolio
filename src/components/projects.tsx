@@ -18,6 +18,7 @@ export default function Projects() {
               description={item.description}
               category={item.category}
               label={item.label}
+              date={item.date}
             />
           ))}
       </div>
@@ -25,7 +26,12 @@ export default function Projects() {
   );
 }
 
-export const ProjectCard = ({ title, description, link }: ProjectItem) => {
+export const ProjectCard = ({
+  title,
+  description,
+  link,
+  date,
+}: ProjectItem) => {
   return (
     <Link
       href={link}
@@ -41,7 +47,7 @@ export const ProjectCard = ({ title, description, link }: ProjectItem) => {
       </span>
       <hr className="hidden md:block flex-grow border-t border-neutral-600 group-hover:border-neutral-300" />
       <span className="hidden md:inline-block flex-shrink-0 text-xs text-neutral-500 group-hover:text-neutral-300">
-        {2024}
+        {date}
       </span>
     </Link>
   );
