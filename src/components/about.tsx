@@ -13,7 +13,7 @@ export default function About() {
       </Link>
       <p className="text-neutral-100 mt-1">
         open to new opportunities //{" "}
-        <Link href="mailto:kiratsatarohan@gmail.com hover:text-green-400">
+        <Link href="mailto:kiratsatarohan@gmail.com" className="hover:text-green-400">
           kiratsatarohan@gmail.com
         </Link>
       </p>
