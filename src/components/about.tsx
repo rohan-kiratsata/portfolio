@@ -8,9 +8,11 @@ export default function About() {
     <div>
       <h2 className="heading">about</h2>
       <p className="text-base text-neutral-500">{about}</p>
-      <p className="text-neutral-300">
-        <span className="text-green-400 mt-1">open to new opportunities*</span>{" "}
-        //{" "}
+      <Link href="https://notes.rohankiratsata.xyz" className="font-mono mt-1 text-neutral-100 hover:text-green-400">
+      tech notes/blogs
+      </Link>
+      <p className="text-neutral-100 mt-1">
+        open to new opportunitie //{" "}
         <Link href="mailto:kiratsatarohan@gmail.com">
           kiratsatarohan@gmail.com
         </Link>
