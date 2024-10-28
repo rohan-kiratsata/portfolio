@@ -5,6 +5,15 @@ export const about: string =
 
 export const projects: ProjectItem[] = [
   {
+    title: "Code Analyser",
+    link: "https://github.com/rohan-kiratsata/code-analyser",
+    label: "in progress",
+    category: "personal",
+    date: "2024",
+    description:
+      "get insigts and analysis of any Node.js based GitHub repo with single click.",
+  },
+  {
     title: "nlog",
     link: "https://github.com/rohan-kiratsata/nlog/",
     description:
