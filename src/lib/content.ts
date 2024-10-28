@@ -1,30 +1,23 @@
 import { ProjectItem } from "@/types";
 
 export const about: string =
-  "Cracked frontend engineer and freelancing for more than 3 years. I own a computer and code for living. Some of my other interests are chess, F1, philosophy, hardware. Currently working as Lead Frontend Engineer at ████";
+  "Cracked full stack engineer and freelancing for more than 3 years. Currently working as Lead Web3 Frontend Engineer (I mostly spend my time designing frontend architecture and optimizing it).";
 
 export const projects: ProjectItem[] = [
-  {
-    title: "node.js torrent client",
-    link: "https://github.com/rohan-kiratsata/bittorrent-client-nodejs",
-    description:
-      "built torrent client in node.js to learn how torrent clients works",
-    category: "personal",
-    date: "2024",
-  },
-  {
-    title: "v.alpha",
-    link: "https://github.com/rohan-kiratsata/create-alpha",
-    description: "open source starter pack for startups",
-    category: "personal",
-    date: "2024",
-  },
   {
     title: "nlog",
     link: "https://github.com/rohan-kiratsata/nlog/",
     description:
       "an open-source markdown-based blog template built with next.js 14 and shadcn/ui",
     label: "in progress",
+    category: "personal",
+    date: "2024",
+  },
+  {
+    title: "HTTP server from scratch -  Golang",
+    link: "https://gist.github.com/rohan-kiratsata/09124d7291b8cd8aafd23ae24d64fb6e",
+    description:
+      "build a basic http server to understand how HTTP server works. ",
     category: "personal",
     date: "2024",
   },
@@ -79,20 +72,6 @@ export const projects: ProjectItem[] = [
     description: "another business website (nextjs & tailwindcss)",
     category: "freelance",
     date: "2022",
-  },
-  {
-    title: "Pet Excel Marketing",
-    link: "https://petexcelmarketing.com/",
-    description: "wordpress",
-    category: "side",
-    date: "2021",
-  },
-  {
-    title: "GetFitAlready",
-    link: "https://getfitalready.com/",
-    description: "wordpress",
-    category: "side",
-    date: "2021",
   },
   {
     title: "GigaResources",

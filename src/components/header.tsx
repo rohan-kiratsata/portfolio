@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <div className="flex items-center justify-between">
       <header className="flex flex-col">
-        <Link href={"/"} className="text-xl font-semibold">
+        <Link href={"/"} className="text-lg font-semibold">
           {site.name}
         </Link>
       </header>

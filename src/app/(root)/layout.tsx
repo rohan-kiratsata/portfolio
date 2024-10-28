@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
-import Header from "@/components/header";
 import { site } from "@/config";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Rohan Kiratsata - Software Engineer, Freelancer",
@@ -27,10 +26,7 @@ export default function RootLayout({
       <body>
         <Analytics />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <div className="layout">
-            <Header />
-            <div className="my-10">{children}</div>
-          </div>
+          <div>{children}</div>
         </ThemeProvider>
       </body>
     </html>
