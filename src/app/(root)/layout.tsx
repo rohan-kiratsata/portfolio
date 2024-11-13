@@ -25,7 +25,7 @@ export default function RootLayout({
     >
       <body>
         <Analytics />
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <div>{children}</div>
         </ThemeProvider>
       </body>

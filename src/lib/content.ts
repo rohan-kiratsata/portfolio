@@ -1,23 +1,13 @@
 import { ProjectItem } from "@/types";
 
 export const about: string =
-  "Cracked full stack engineer and freelancing for more than 3 years. Currently working as Lead Web3 Frontend Engineer (I mostly spend my time designing frontend architecture and optimizing it).";
+  "cracked full stack engineer. part-time freelancer. currently working as lead web3 frontend eng.";
 
 export const projects: ProjectItem[] = [
   {
-    title: "Code Analyser",
-    link: "https://github.com/rohan-kiratsata/code-analyser",
-    label: "in progress",
-    category: "personal",
-    date: "2024",
-    description:
-      "get insigts and analysis of any Node.js based GitHub repo with single click.",
-  },
-  {
     title: "nlog",
     link: "https://github.com/rohan-kiratsata/nlog/",
-    description:
-      "an open-source markdown-based blog template built with next.js 14 and shadcn/ui",
+    description: "(half-baked) markdown based blog template (next.js)",
     label: "in progress",
     category: "personal",
     date: "2024",
@@ -25,8 +15,7 @@ export const projects: ProjectItem[] = [
   {
     title: "HTTP server from scratch -  Golang",
     link: "https://gist.github.com/rohan-kiratsata/09124d7291b8cd8aafd23ae24d64fb6e",
-    description:
-      "build a basic http server to understand how HTTP server works. ",
+
     category: "personal",
     date: "2024",
   },
