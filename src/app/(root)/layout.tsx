@@ -26,7 +26,9 @@ export default function RootLayout({
       <body>
         <Analytics />
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <div>{children}</div>
+          <div className="text-sm max-w-lg mx-auto px-5 md:px-0 my-20 font-mono">
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>

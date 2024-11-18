@@ -1,7 +1,7 @@
 import { ProjectItem } from "@/types";
 
 export const about: string =
-  "cracked full stack engineer. part-time freelancer. currently working as lead web3 frontend eng.";
+  "cracked full stack engineer. part-time freelancer. currently working as lead web3 frontend engineer";
 
 export const projects: ProjectItem[] = [
   {
