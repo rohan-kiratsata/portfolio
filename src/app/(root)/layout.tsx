@@ -3,13 +3,11 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
-import { site } from "@/config";
+
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Rohan Kiratsata - Software Engineer, Freelancer",
-  description: site.description,
-
   authors: [{ name: "Rohan Kiratasata" }],
 };
 
