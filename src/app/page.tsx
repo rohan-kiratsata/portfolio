@@ -1,7 +1,6 @@
 import FreelanceSection from "@/components/freelance";
 import ProjectsSection from "@/components/projects";
-import { ArrowUpRight, ExternalLink } from "lucide-react";
-import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {

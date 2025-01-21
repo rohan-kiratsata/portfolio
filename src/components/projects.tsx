@@ -3,14 +3,22 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
+type Project = {
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+};
+
 export default function ProjectsSection() {
   return (
     <>
       <section className="mt-10">
         <h1 className="text-lg text-neutral-400 font-medium">projects</h1>
         <div className="mt-3 space-y-1">
-          {projects.map((project: any) => (
+          {projects.map((project: Project) => (
             <ProjectCard
+              key={project.title}
               title={project.title}
               description={project.description}
               image={project.image}
@@ -23,17 +31,7 @@ export default function ProjectsSection() {
   );
 }
 
-const ProjectCard = ({
-  title,
-  description,
-  image,
-  link,
-}: {
-  title: string;
-  description: string;
-  image: string;
-  link: string;
-}) => {
+const ProjectCard = ({ title, description, image, link }: Project) => {
   return (
     <Link
       href={link}

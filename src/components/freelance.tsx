@@ -9,12 +9,11 @@ export default function FreelanceSection() {
         I have been freelancing for a now almost 4 years. Some of my work
         includes @
       </p>
-      
     </section>
   );
 }
-
-const FreelanceCard = ({ image }: { image: string }) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const _FreelanceCard = ({ image }: { image: string }) => {
   return (
     <div className="flex flex-row items-center justify-between">
       <Image src={image} alt={"logo"} width={100} height={100} />
